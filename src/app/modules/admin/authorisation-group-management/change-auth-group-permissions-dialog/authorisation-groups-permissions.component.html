@@ -1,0 +1,36 @@
+<div class="modal-header">
+    <h2 class="fw-bold">Set group permissions</h2>
+    <div class="btn btn-icon btn-sm btn-active-icon-primary" (click)="closeModal()">
+        <i class="ki-duotone ki-cross fs-1">
+            <span class="path1"></span>
+            <span class="path2"></span>
+        </i>
+    </div>
+</div>
+<div class="modal-body">
+    <app-alert-danger [messages]="errors"></app-alert-danger>
+    
+    <app-modal-loading-indicator [isLoading]="isLoading"></app-modal-loading-indicator>
+
+    <ng-container *ngIf="!isLoading">
+        <div class="fv-row mb-7 fv-plugins-icon-container" >
+            <label class="required fs-6 fw-semibold mb-2">Name</label>
+            <input type="text" class="form-control form-control-solid" [value]="groupName" readonly>
+        </div>
+        <div class="fv-row mb-7 fv-plugins-icon-container" >
+            <div class="col-md-12 col-sm-12 col-xs-12" id="tree" *ngIf="roles && roles.length>0">
+                <ul class="tree-group">
+                    <app-auth-group-role-selection [roles]="roles"></app-auth-group-role-selection>
+                </ul>
+            </div>
+        </div>
+    </ng-container>
+
+
+    <div class="modal-footer">
+        <button type="button" class="btn  green-haze btn-outline pull-left" [disabled]="isSaving" (click)="save()">
+            <span><i class="fa fa-fw" [ngClass]="isSaving ? 'fa-spinner fa-spin' : 'fa-save'"></i></span>&nbsp; Save
+        </button>
+        <button type="button" (click)="closeModal()" class="btn dark btn-outline">Close</button>
+    </div>
+</div>

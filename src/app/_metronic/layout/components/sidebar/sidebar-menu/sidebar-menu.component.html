@@ -1,0 +1,60 @@
+<!--begin::Menu wrapper-->
+<div id="kt_app_sidebar_menu_wrapper" class="app-sidebar-wrapper hover-scroll-overlay-y my-5" data-kt-scroll="true" data-kt-scroll-activate="true" data-kt-scroll-height="auto" data-kt-scroll-dependencies="#kt_app_sidebar_logo, #kt_app_sidebar_footer" data-kt-scroll-wrappers="#kt_app_sidebar_menu"
+    data-kt-scroll-offset="5px" data-kt-scroll-save-state="true">
+    <!--begin::Menu-->
+    <div class="menu menu-column menu-rounded menu-sub-indention px-3" id="#kt_app_sidebar_menu" data-kt-menu="true" data-kt-menu-expand="false">
+        <!-- Dashboard -->
+        <div class="menu-item">
+            <a class="menu-link without-sub" routerLink="/dashboard" routerLinkActive="active">
+                <span class="menu-icon">
+                    <app-keenicon name="element-11" class="fs-2"></app-keenicon>
+                </span>
+                <span class="menu-title">Dashboard</span>
+            </a>
+        </div>
+
+        <ng-container *ngIf="isAdmin">
+            <!-- Separator -->
+            <div class="menu-item">
+                <div class="menu-content pt-8 pb-2">
+                    <span class="menu-section text-muted text-uppercase fs-8 ls-1">Admin</span>
+                </div>
+            </div>
+
+            <!-- Accounts -->
+            <div class="menu-item menu-accordion" data-kt-menu-trigger="click" routerLinkActive="here show">
+                <span class="menu-link">
+                    <span class="menu-icon">
+                        <app-keenicon name="profile-circle" class="fs-2"></app-keenicon>
+                    </span>
+                    <span class="menu-title" data-link="/crafted/account">User management
+                    </span>
+                    <span class="menu-arrow"></span>
+                </span>
+                <div class="menu-sub menu-sub-accordion" routerLinkActive="menu-active-bg">
+                    <div class="menu-item">
+                        <a class="menu-link without-sub" routerLinkActive="active" routerLink="/admin/users/user-list">
+                            <span class="menu-bullet">
+                                <span class="bullet bullet-dot"></span>
+                            </span>
+                            <span class="menu-title">User list
+                            </span>
+                        </a>
+                    </div>
+                    <div class="menu-item">
+                        <a class="menu-link without-sub" routerLinkActive="active" routerLink="/admin/authorisation-groups/authorisation-group-list">
+                            <span class="menu-bullet">
+                                <span class="bullet bullet-dot"></span>
+                            </span>
+                            <span class="menu-title">Authorisation groups
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+
+    </div>
+    <!--end::Menu-->
+</div>
+<!--end::Menu wrapper-->

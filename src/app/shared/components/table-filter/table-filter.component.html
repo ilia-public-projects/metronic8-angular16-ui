@@ -1,0 +1,19 @@
+<button type="button" class="btn me-3" [ngClass]="criteriaIsSet ? 'btn-primary' : 'btn-light-primary'" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+    <i class="fa fa-filter">
+        <span class="path1"></span>
+        <span class="path2"></span>
+    </i>Filter</button>
+
+<div class="menu menu-sub menu-sub-dropdown w-300px w-md-325px" data-kt-menu="true">
+    <div class="px-7 py-5">
+        <div class="fs-5 text-dark fw-bold">Filter Options</div>
+    </div>
+    <div class="separator border-gray-200"></div>
+    <div class="px-7 py-5" data-kt-user-table-filter="form" data-select2-id="select2-data-142-9776">
+        <ng-content></ng-content>
+        <div class="d-flex justify-content-end">
+            <button type="button" (click)="reset()" class="btn btn-light btn-active-light-primary fw-semibold me-2 px-6">Reset</button>
+            <button type="button" (click)="apply()" class="btn btn-primary fw-semibold px-6" data-kt-menu-dismiss="true" data-kt-user-table-filter="filter">Apply</button>
+        </div>
+    </div>
+</div>

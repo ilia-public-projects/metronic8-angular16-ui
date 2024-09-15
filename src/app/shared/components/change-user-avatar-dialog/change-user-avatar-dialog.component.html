@@ -1,0 +1,24 @@
+<div class="modal-header">
+    <h2 class="fw-bold">Edit avatar</h2>
+    <div class="btn btn-icon btn-sm btn-active-icon-primary" (click)="closeModal()">
+        <i class="ki-duotone ki-cross fs-1">
+            <span class="path1"></span>
+            <span class="path2"></span>
+        </i>
+    </div>
+</div>
+<div class="modal-body">
+    <app-alert-danger [messages]="errors"></app-alert-danger>
+
+    <app-modal-loading-indicator [isLoading]="isLoading"></app-modal-loading-indicator>
+    <form [formGroup]="form" autocomplete="off" *ngIf="form">
+        <div class="fv-row mb-7 fv-plugins-icon-container">
+            <app-avatar-editor [photoUri]="photoUri" (photoChanged)="uploadPhoto($event)" [isSaving]="isSavingPhoto"></app-avatar-editor>
+        </div>
+    </form>
+
+
+    <div class="modal-footer">
+        <button type="button" (click)="closeModal()" class="btn dark btn-outline">Close</button>
+    </div>
+</div>

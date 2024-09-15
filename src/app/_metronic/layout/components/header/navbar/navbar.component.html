@@ -1,0 +1,22 @@
+<div class="app-navbar-item" [ngClass]="itemClass">
+    <div [ngClass]="btnClass" class="position-relative" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
+        <app-keenicon name="profile-user" class="fs-2"></app-keenicon>
+        <span *ngIf="connectedUsers.length" class="position-absolute top-10 start-80 translate-middle badge badge-sm badge-circle bg-secondary p-2">{{connectedUsers.length}}</span>
+    </div>
+    <app-connected-users-inner></app-connected-users-inner>
+</div>
+
+<!--begin::User menu-->
+<ng-container *ngIf="user$ | async as _user">
+    <div class="app-navbar-item" [ngClass]="itemClass">
+        <!--begin::Menu wrapper-->
+        <div class="cursor-pointer symbol" [ngClass]="userAvatarClass" data-kt-menu-trigger="{default: 'click'}" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
+            <img alt="Logo" [src]="_user.photoUri" *ngIf="_user.photoUri" />
+            <img alt="Logo" src="/assets/media/avatars/blank.png" *ngIf="!_user.photoUri" />
+        </div>
+        <app-user-inner data-kt-menu='true'></app-user-inner>
+        <!--end::Menu wrapper-->
+    </div>
+</ng-container>
+
+<!--end::User menu-->

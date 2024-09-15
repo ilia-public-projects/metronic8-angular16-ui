@@ -1,0 +1,33 @@
+<ng-container *ngIf="user$ | async as _user">
+    <div class="menu-item px-3">
+        <div class="menu-content d-flex align-items-center px-3">
+            <div class="symbol symbol-50px me-5">
+                 <img alt="Logo" [src]="_user.photoUri" *ngIf="_user.photoUri" />
+                 <img alt="Logo" src="/assets/media/avatars/blank.png" *ngIf="!_user.photoUri" />
+            </div>
+
+            <div class="d-flex flex-column">
+                <div class="fw-bolder d-flex align-items-center fs-5">
+                    {{ _user.name }}
+                </div>
+                <a class="fw-bold text-muted text-hover-primary fs-7 cursor-pointer">
+                    {{ _user.email }}
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="separator my-2"></div>
+
+    <div class="menu-item px-5">
+        <a (click)="changeAvatar()" class="menu-link px-5 cursor-pointer"> Change avatar </a>
+    </div>
+
+    <div class="menu-item px-5">
+        <a (click)="changePassword()" class="menu-link px-5 cursor-pointer"> Change password </a>
+    </div>
+
+    <div class="menu-item px-5">
+        <a (click)="logout()" class="menu-link px-5 cursor-pointer"> Sign out </a>
+    </div>
+</ng-container>

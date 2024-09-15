@@ -1,0 +1,20 @@
+<li class="tree-item" *ngFor="let role of roles">
+    <span class="tree-wrapper">
+        <span class="tree-toggler" *ngIf="role.children && role.children.length>0">
+            <a data-type="toggler" (click)="toggleShowChildren(role)">
+                <span>
+                    <i class="fa fa-fw {{role.icon ? role.icon : 'fa-plus'}}"></i>
+                </span>
+            </a>
+        </span>
+        <div class="tree-checkbox">
+            <label class="form-check form-check-sm form-check-custom form-check-solid me-5">
+                <input type="checkbox" class="form-check-input"  [checked]="role.selected" id="{{role.name}}" (change)="roleSelected(role,$event)" />
+                <span class="form-check-label">{{role.description}}</span>
+            </label>
+        </div>
+    </span>
+    <ul class="tree-group" [ngClass]="role.showChildren ? '' : 'nested'">
+        <app-auth-group-role-selection *ngIf="role.children && role.children.length>0" [roles]="role.children"></app-auth-group-role-selection>
+    </ul>
+</li>

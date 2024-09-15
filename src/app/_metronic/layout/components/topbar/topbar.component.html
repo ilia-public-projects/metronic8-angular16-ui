@@ -1,0 +1,30 @@
+
+<!-- begin::Theme mode -->
+<app-theme-mode-switcher class="d-flex align-items-center" [ngClass]="toolbarButtonMarginClass" toggleBtnClass="{`btn-active-light-primary btn-custom ${toolbarButtonHeightClass}`}">
+</app-theme-mode-switcher>
+<!-- end::Theme mode -->
+
+<!-- begin::User -->
+<div class="d-flex align-items-center" [ngClass]="toolbarButtonMarginClass" id="kt_header_user_menu_toggle">
+    <!-- begin::Toggle -->
+    <div class="cursor-pointer symbol" [ngClass]="toolbarUserAvatarHeightClass" data-kt-menu-trigger="click" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end" data-kt-menu-flip="bottom">
+        <img src="./assets/media/avatars/300-1.jpg" alt="metronic" />
+    </div>
+    <!-- end::Toggle  -->
+    <app-user-inner></app-user-inner>
+</div>
+<!-- end::User -->
+
+<ng-container *ngIf="headerLeft === 'menu'">
+    <div class="d-flex align-items-center d-lg-none ms-2 me-n3" title="Show header menu">
+        <div class="
+        btn btn-icon btn-active-light-primary
+        w-30px
+        h-30px
+        w-md-40px
+        h-md-40px
+      " id="kt_header_menu_mobile_toggle">
+            <app-keenicon name="text-align-left" class="fs-1"></app-keenicon>
+        </div>
+    </div>
+</ng-container>

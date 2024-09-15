@@ -1,0 +1,31 @@
+<div class="modal-header">
+    <h2 class="fw-bold">Assign user to authorisation groups</h2>
+    <div class="btn btn-icon btn-sm btn-active-icon-primary" (click)="closeModal()">
+        <i class="ki-duotone ki-cross fs-1">
+            <span class="path1"></span>
+            <span class="path2"></span>
+        </i>
+    </div>
+</div>
+<div class="modal-body">
+    <app-alert-danger [messages]="errors"></app-alert-danger>
+
+    <app-modal-loading-indicator [isLoading]="isLoading"></app-modal-loading-indicator>
+
+    <div *ngIf="viewModel">
+        <div class="fv-row mb-7 fv-plugins-icon-container" *ngFor="let group of viewModel.groups">
+            <label class="form-check form-check-sm form-check-custom form-check-solid me-5">
+                <input type="checkbox" class="form-check-input" [checked]="group.isSelected" (change)="group.isSelected=!group.isSelected" id="{{group.groupId}}" />
+                <span class="form-check-label">{{group.groupName}}</span>
+            </label>
+        </div>
+    </div>
+
+
+    <div class="modal-footer">
+        <button type="button" class="btn  green-haze btn-outline pull-left" [disabled]="isSaving" (click)="save()">
+            <span><i class="fa fa-fw" [ngClass]="isSaving ? 'fa-spinner fa-spin' : 'fa-save'"></i></span>&nbsp; Save
+        </button>
+        <button type="button" (click)="closeModal()" class="btn dark btn-outline">Close</button>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+<form [formGroup]="form" autocomplete="off" *ngIf="form">
+    <div class="modal-header">
+        <h2 class="fw-bold">Create authorisation group</h2>
+        <div class="btn btn-icon btn-sm btn-active-icon-primary" (click)="closeModal()">
+            <i class="ki-duotone ki-cross fs-1">
+                <span class="path1"></span>
+                <span class="path2"></span>
+            </i>
+        </div>
+    </div>
+    <div class="modal-body">
+        <app-alert-danger [messages]="errors"></app-alert-danger>
+        <div class="fv-row mb-7 fv-plugins-icon-container">
+            <label class="required fs-6 fw-semibold mb-2">Name</label>
+            <input type="text" class="form-control form-control-solid" formControlName="name">
+            <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback" *ngIf="name!.touched && name!.invalid">
+                <div>Value canot be blank!</div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn  green-haze btn-outline pull-left" [disabled]="isSaving" (click)="save()">
+            <span><i class="fa fa-fw" [ngClass]="isSaving ? 'fa-spinner fa-spin' : 'fa-save'"></i></span>&nbsp; Save
+        </button>
+        <button type="button" (click)="closeModal()" class="btn dark btn-outline">Close</button>
+    </div>
+</form>
+
+
+
+
+

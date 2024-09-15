@@ -1,0 +1,19 @@
+<div class="p-5">
+    <div class="scroll-y mh-200px mh-lg-325px">
+        <h3 class="fs-5 text-muted m-0 pb-5" data-kt-search-element="category-title">
+            Connected users <span class="badge badge-circle badge-sm badge-secondary">{{activeConnections.length}}</span>
+        </h3>
+        <!--begin::Separator-->
+        <div class="separator border-gray-200 mb-6"></div>
+        <!--end::Separator-->
+        <a *ngFor="let item of activeConnections" class="d-flex text-dark text-hover-primary align-items-center mb-5">
+            <div class="symbol symbol-40px me-4">
+                <img [src]="item.photoUri" alt="" />
+            </div>
+            <div class="d-flex flex-column justify-content-start fw-bold">
+                <span class="fs-6 fw-bold">{{ item.name }}</span>
+                <span class="fs-7 fw-bold text-muted">{{ item.email }}</span>
+            </div>
+        </a>
+    </div>
+</div>

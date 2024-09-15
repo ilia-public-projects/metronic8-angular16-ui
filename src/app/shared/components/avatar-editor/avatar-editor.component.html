@@ -1,0 +1,25 @@
+<label class="d-block fw-semibold fs-6 mb-5">Avatar</label>
+
+
+<div class="image-input image-input-circle" data-kt-image-input="true">
+    <div class="overlay card-rounded" [class.overlay-block]="isSaving">
+        <div class="overlay-wrapper">
+            <div class="image-input-wrapper w-125px h-125px" [appBackImg]="avatarUri"></div>
+            <label class="btn btn-icon btn-circle btn-color-muted btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" data-bs-dismiss="click" title="Change avatar" *ngIf="!isSaving">
+                <i class="ki-duotone ki-pencil fs-6"><span class="path1"></span><span class="path2"></span></i>
+                <input type="file" name="avatar" accept=".png, .jpg, .jpeg" (change)="onSelectFile($event)" />
+                <input type="hidden" name="avatar_remove" />
+            </label>
+            <span class="btn btn-icon btn-circle btn-color-muted btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" data-bs-dismiss="click" (click)="removeAvatar()" title="Remove avatar" *ngIf="!isSaving">
+                <i class="ki-outline ki-cross fs-3"></i>
+            </span>
+        </div>
+        <div class="overlay-layer card-rounded bg-opacity-5" *ngIf="isSaving">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="form-text">Allowed file types: png, jpg, jpeg.</div>
