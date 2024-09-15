@@ -19,8 +19,8 @@ export class LoginComponent implements OnInit, OnDestroy {
     public isLoggingIn$: Observable<boolean>;
 
     private defaultAuth: any = {
-        email: 'iliadev@yahoo.com',
-        password: 'P@ssw0rd!',
+        email: 'email@yahoo.com',
+        password: 'password',
     };
     private unsubscribe: Subscription[] = [];
 
